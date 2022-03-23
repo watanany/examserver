@@ -1,0 +1,99 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.6.
+--
+-- see: https://github.com/sol/hpack
+
+name:           examserver
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/githubuser/examserver#readme>
+homepage:       https://github.com/watanany/examserver#readme
+bug-reports:    https://github.com/watanany/examserver/issues
+author:         watanany
+maintainer:     s1170087@gmail.com
+copyright:      2022 watanany
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/watanany/examserver
+
+library
+  exposed-modules:
+      Env
+      Lib
+      Server
+  other-modules:
+      Paths_examserver
+  hs-source-dirs:
+      src
+  default-extensions:
+      OverloadedStrings
+      NoImplicitPrelude
+      MultiWayIf
+      ExplicitForAll
+  ghc-options: -Wall -Wcompat
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , monad-logger
+    , rio
+    , servant
+    , servant-server
+    , transformers
+    , warp
+  default-language: Haskell2010
+
+executable examserver-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_examserver
+  hs-source-dirs:
+      app
+  default-extensions:
+      OverloadedStrings
+      NoImplicitPrelude
+      MultiWayIf
+      ExplicitForAll
+  ghc-options: -Wall -Wcompat -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , examserver
+    , monad-logger
+    , rio
+    , servant
+    , servant-server
+    , transformers
+    , warp
+  default-language: Haskell2010
+
+test-suite examserver-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_examserver
+  hs-source-dirs:
+      test
+  default-extensions:
+      OverloadedStrings
+      NoImplicitPrelude
+      MultiWayIf
+      ExplicitForAll
+  ghc-options: -Wall -Wcompat -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      aeson
+    , base >=4.7 && <5
+    , examserver
+    , monad-logger
+    , rio
+    , servant
+    , servant-server
+    , transformers
+    , warp
+  default-language: Haskell2010
